@@ -47,13 +47,6 @@ namespace OwinSocket
             // 注册管道事件对应的处理程序
             OwinPipelineRegister.Register(app);
 
-            //JSON格式化
-            config.Formatters.JsonFormatter.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-            config.Formatters.JsonFormatter.SerializerSettings = new Newtonsoft.Json.JsonSerializerSettings()
-            {
-                DateFormatString = "yyyy-MM-dd HH:mm:ss",
-            };
-
             // 注册WebApi 一定要最后才注册
             app.UseWebApi(config);
         }
