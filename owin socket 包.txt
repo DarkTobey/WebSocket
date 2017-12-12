@@ -1,0 +1,17 @@
+
+
+Microsoft.AspNet.WebApi.Owin   		5.2.0 （这将自动安装owin相关包）
+Microsoft.Owin.Hosting		   		3.1.0
+Microsoft.Owin.Host.HttpListener	3.1.0
+
+
+SuperSocket.WebSocket 1.6.6.1
+SuperSocket.Engine	  1.6.6.1
+
+
+Microsoft.AspNet.Identity.Owin  2.2.1
+Microsoft.Owin.Host.SystemWeb   5.2.3
+
+
+Swashbuckle			5.4.0
+Swashbuckle.Core 	5.4.0

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinSocket", "OwinSocket\OwinSocket.csproj", "{A7286CEE-6BAF-40A7-92D6-3B34793AC339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TobeySocket", "TobeySocket\TobeySocket.csproj", "{0FBFB94C-B6CB-47A0-B541-14910833F28B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7286CEE-6BAF-40A7-92D6-3B34793AC339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7286CEE-6BAF-40A7-92D6-3B34793AC339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7286CEE-6BAF-40A7-92D6-3B34793AC339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7286CEE-6BAF-40A7-92D6-3B34793AC339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBFB94C-B6CB-47A0-B541-14910833F28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBFB94C-B6CB-47A0-B541-14910833F28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBFB94C-B6CB-47A0-B541-14910833F28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBFB94C-B6CB-47A0-B541-14910833F28B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

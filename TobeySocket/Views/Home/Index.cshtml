@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Socket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width:800px; margin:0 auto;">
+
+    <div>
+        <input id="txtServerURL" type="text" value="ws://127.0.0.1:1234" />
+    </div>
+
+    <div>
+        <input id="btnOpen" type="button" value="建立连接" onclick="doOpen()" />
+        <input id="btnClose" type="button" value="关闭连接" onclick="doClose()" style="margin:30px 20px;" />
+        <label id="socketState">尚未建立连接！</label>
+    </div>
+
+    <div class="input-group" style="margin:20px 0px;">
+        <input id="txtMsg" type="text" placeholder="消息内容" />
+        <span class="input-group-btn">
+            <input id="btnSendMsg" type="button" value="发送消息" onclick="doSend()" />
+        </span>
+    </div>
+
+    <div id="socketMessages" style="margin:20px 0px;"></div>
+</div>
+
+<script>
+
+    var webSocket = null;
+
+    function doOpen() {
+        var serverURI = $("#txtServerURL").val();
+        webSocket = new WebSocket(serverURI);
+
+        webSocket.onopen = function () {
+            $("#socketState").html("连接已经建立！");
+        }
+
+        webSocket.onerror = function () {
+            $("#socketState").html("连接出现异常！");
+        }
+
+        webSocket.onclose = function () {
+            $("#socketState").html("连接已经关闭！");
+        }
+
+        webSocket.onmessage = function (event) {
+            console.log("on message", event);
+            $("#socketMessages").append("<p>" + event.data + "</p>");
+        }
+
+    }
+
+    function doSend() {
+        if (webSocket.readyState == WebSocket.OPEN) {
+            var msg = $("#txtMsg").val();
+            if (msg == '') return;
+            webSocket.send(msg);
+            console.log("发送了消息" + msg);
+        } else {
+            $("#socketState").html("连接已经关闭！");
+        }
+    }
+
+    function doClose() {
+        webSocket.close();
+        $("#socketState").html("连接已经关闭！");
+    }
+
+</script>
