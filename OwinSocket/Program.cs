@@ -51,10 +51,8 @@ namespace OwinSocket
 
         static void AppStart()
         {
-            //// 初始化 DataGateway
-            //IDataGateway dataGateway = DataGateway.Instance;
-            //dataGateway.RegisterDataAccessType<OracleDataAccess>().Provider("Oracle", new OracleCommandBuildProvider());
-            //dataGateway.EntityMapContainerInit();
+            // 注册 log4net
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

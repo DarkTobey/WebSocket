@@ -22,7 +22,7 @@ namespace OwinSocket
             ws.SessionClosed += Ws_SessionClosed;           //当有用户退出时
             if (ws.Setup(config)) ws.Start();               //绑定端口并启动服务
 
-            Console.WriteLine($"\n WebSocket 已启动 正在监听 {config.Ip}:{config.Port}  输入quit退出\n");
+            Console.WriteLine($"\n WebSocket 已启动 正在监听 {config.Ip}:{config.Port} \n");
             while (true)
             {
                 if (Console.ReadLine().Equals("quit")) break;
