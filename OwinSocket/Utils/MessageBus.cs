@@ -10,8 +10,6 @@ namespace OwinSocket.Utils
     {
         private static Dictionary<string, List<object>> dic = new Dictionary<string, List<object>>();
 
-        private static readonly object msgLock = new object();
-
         /// <summary>
         /// 订阅
         /// </summary>
@@ -20,7 +18,7 @@ namespace OwinSocket.Utils
         public static void Subscribe(string topic, object obj)
         {
             if (string.IsNullOrEmpty(topic)) return;
-            lock (msgLock)
+            lock (dic)
             {
                 if (dic == null)
                     dic = new Dictionary<string, List<object>>();
@@ -38,7 +36,7 @@ namespace OwinSocket.Utils
         /// <param name="obj">对象</param>
         public static void UnSubscribe(object obj)
         {
-            lock (msgLock)
+            lock (dic)
             {
                 if (dic == null) return;
                 List<string> removeTopic = new List<string>();
@@ -63,14 +61,11 @@ namespace OwinSocket.Utils
         public static void Publish(string topic, Action<object> act)
         {
             if (string.IsNullOrEmpty(topic)) return;
-            lock (msgLock)
+            lock (dic)
             {
                 if (dic == null) return;
                 if (!dic.ContainsKey(topic)) return;
                 var list = dic[topic];
-
-                Console.WriteLine($" {topic} 的订阅量 {list.Count}");
-
                 foreach (var i in list)
                 {
                     act(i);

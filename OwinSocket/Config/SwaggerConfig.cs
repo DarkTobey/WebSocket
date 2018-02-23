@@ -5,6 +5,9 @@ using Swashbuckle.Application;
 using System.Linq;
 using System.IO;
 
+//owin中没有了这个传统的管道事件，这里这么写是无法生效的，需要手动注入
+//[assembly: PreApplicationStartMethod(typeof(OwinSocket.Config.SwaggerConfig), "Register")]
+
 namespace OwinSocket.Config
 {
     public class SwaggerConfig
@@ -32,7 +35,7 @@ namespace OwinSocket.Config
                     c.IncludeXmlComments(xml);
                 }
 
-            }).EnableSwaggerUi("sandbox/{*assetPath}");
+            }).EnableSwaggerUi(c => { });
         }
     }
 }

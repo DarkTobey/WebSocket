@@ -13,19 +13,14 @@ namespace OwinSocket.Config
     {
         public static void DoSomethingWhenPipelineStageChange(IOwinContext context, string stage)
         {
-#if DEBUG
-            ////测试时固定用户
-            //if (stage.Equals("Authenticate"))
-            //{
-            //    var userManager = context.GetUserManager<AppUserManager>();
-            //    var user = userManager.FindByName("1");
-            //    var identity = userManager.GenerateUserIdentityAsync(user, OAuthDefaults.AuthenticationType).Result;
-            //    context.Authentication.User = new ClaimsPrincipal(identity);
-            //}
-#endif
+            //鉴权时
+            if (stage.Equals("Authenticate"))
+            {
+
+            }
         }
 
-        #region 注册管道事件
+        #region 注册一些自定义的管道事件
 
         public static void Register(IAppBuilder app)
         {
@@ -132,7 +127,5 @@ namespace OwinSocket.Config
         }
 
         #endregion
-
-
     }
 }
